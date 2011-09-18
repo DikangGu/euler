@@ -1,9 +1,9 @@
 object P12 {
 	    
-	def numOfFactors(num: Long) :Int = {
+	def numOfFactors(num: BigInt) :Int = {
 		var count = 0                 
 		
-		for (i <- (1L to num)) {
+		for (i <- (BigInt(1) to num)) {
 			if (num % i == 0) {
 				count = count + 1
 			}
@@ -13,13 +13,13 @@ object P12 {
 	}
 	
 	def main(args: Array[String]) {
-		var triangle = 1L
-		var index = 2
+		var triangle = BigInt(1)
+		var index = BigInt(2)
 		
 		while(true) {
 			triangle = triangle + index
 			
-			if (triangle > 500000000) {
+			if (triangle > BigInt(5000000)) {
 				val factors = numOfFactors(triangle)     
 				println(factors)
 				if (factors > 500) {
@@ -28,7 +28,7 @@ object P12 {
 				}
 			}
 			
-			index = index + 1
+			index = index + BigInt(1)
 		}
 		
 		
