@@ -4,11 +4,12 @@ import java.io.FileInputStream
 object P18 {
 	
 	def main(args: Array[String]) {
-		val sc = new Scanner(new FileInputStream("P18.input"))  
+		val sc = new Scanner(new FileInputStream("P67triangle.txt"))  
 		
-		var count = 0       
-		var start = new Array[Int](15)
-		(0 until 15).foreach((x) => {
+		var count = 0         
+		var n = 100 // number of lines
+		var start = new Array[Int](n)
+		(0 until n).foreach((x) => {
 			count = count + x + 1    
 			if (x>0) {
 				start(x) = x + start(x-1)
@@ -28,7 +29,7 @@ object P18 {
 		// calculate
 		(1 until count).foreach((x) => {
 			var t = 0
-			while (t < 15 && start(t) <= x) {
+			while (t < n && start(t) <= x) {
 				t = t + 1
 			}            
 			
@@ -50,7 +51,7 @@ object P18 {
 		     
 		// search for the max in the last line
 		var max = 0
-		(start(14) until count).foreach((x) => {
+		(start(n-1) until count).foreach((x) => {
 			if (max < data(x)) max = data(x)
 		})                                 
 		
